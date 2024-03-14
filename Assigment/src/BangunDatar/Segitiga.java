@@ -11,7 +11,6 @@ package BangunDatar;
 public class Segitiga implements HitungBangunDatar {
     private double sisiA, sisiB, sisiC;
 
-    // Constructor
     public Segitiga(double sisiA, double sisiB, double sisiC) {
         this.sisiA = sisiA;
         this.sisiB = sisiB;
