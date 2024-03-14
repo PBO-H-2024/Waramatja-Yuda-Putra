@@ -6,6 +6,7 @@ package assignment;
 
 import BangunRuang.Tabung;
 import BangunRuang.LimasSegitiga;
+import BangunDatar.Segitiga;
 import java.util.Scanner;
 
 public class Main {
@@ -21,39 +22,50 @@ public class Main {
             System.out.print("Pilihan Menu: ");
             int pilihan = scanner.nextInt();
 
-            if (pilihan == 1) {
-                System.out.print("Jari-jari tabung: ");
-                double jariJari = scanner.nextDouble();
-                System.out.print("Tinggi tabung: ");
-                double tinggi = scanner.nextDouble();
+            switch (pilihan) {
+                case 1:
+                    System.out.print("Jari-jari tabung: ");
+                    double jariJari = scanner.nextDouble();
+                    System.out.print("Tinggi tabung: ");
+                    double tinggi = scanner.nextDouble();
 
-                Tabung tabung1 = new Tabung(jariJari, tinggi);
-                System.out.println("\nHasil perhitungan:");
-                System.out.println("Volume: " + tabung1.volume());
-                System.out.println("Luas permukaan: " + tabung1.luasPermukaan());
-            } else if (pilihan == 2) {
-                System.out.print("Alas limas segitiga: ");
-                double alas = scanner.nextDouble();
-                System.out.print("Tinggi segitiga: ");
-                double tinggiSegitiga = scanner.nextDouble();
-                System.out.print("Tinggi limas segitiga: ");
-                double tinggiLimas = scanner.nextDouble();
+                    Tabung tabung1 = new Tabung(jariJari, tinggi);
+                    System.out.println("\nHasil perhitungan:");
+                    System.out.println("Volume: " + tabung1.volume());
+                    System.out.println("Luas permukaan: " + tabung1.luasPermukaan());
+                    break;
 
-                LimasSegitiga limassegitiga1 = new LimasSegitiga(alas, tinggiSegitiga, tinggiLimas);
-                System.out.println("Hasil perhitungan:");
-                System.out.println("Volume: " + limassegitiga1.volume());
-                System.out.println("Luas permukaan: " + limassegitiga1.luasPermukaan());
-            } else if (pilihan == 3) {
-                System.out.println("\n\tBye.");
-                break;
-            } else {
-                System.out.println("Invalid.");
+                case 2:
+                    System.out.print("Sisi A: ");
+                    double sisiA = scanner.nextDouble();
+                    System.out.print("Sisi B: ");
+                    double sisiB = scanner.nextDouble();
+                    System.out.print("Sisi C: ");
+                    double sisiC = scanner.nextDouble();
+                    System.out.print("Tinggi limas segitiga: ");
+                    double tinggiLimas = scanner.nextDouble();
+                    
+                    Segitiga segitiga = new Segitiga(sisiA, sisiB, sisiC);
+                     System.out.println("\nHasil perhitungan:");
+                    System.out.println("Luas Segitiga: " + segitiga.hitungLuas());
+                    System.out.println("Keliling Segitiga: " + segitiga.hitungKeliling());
+
+                    LimasSegitiga limasSegitiga = new LimasSegitiga(sisiA, sisiB, sisiC, tinggiLimas);
+                    System.out.println("Volume: " + limasSegitiga.volume());
+                    System.out.println("Luas permukaan: " + limasSegitiga.luasPermukaan());
+                    break;
+
+                case 3:
+                    System.out.println("\n\tBye.");
+                    scanner.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid.");
+                    break;
             }
-
-             System.out.print("\nPress Any Key To Continue...");
+            System.out.print("\nPress Any Key To Continue...");
             new java.util.Scanner(System.in).nextLine();
         }
-
-        scanner.close();
     }
 }

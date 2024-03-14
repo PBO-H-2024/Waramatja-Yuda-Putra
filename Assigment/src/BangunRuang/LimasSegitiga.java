@@ -12,19 +12,21 @@ import BangunDatar.Segitiga;
 public class LimasSegitiga extends Segitiga implements HitungBangunRuang {
     private final double tinggiLimas;
 
-    public LimasSegitiga(double tinggiAlas, double alas, double tinggiLimas) {
-        super(tinggiAlas, alas);
+    public LimasSegitiga(double sisiA, double sisiB, double sisiC, double tinggiLimas) {
+        super(sisiA, sisiB, sisiC);
         this.tinggiLimas = tinggiLimas;
     }
 
     @Override
     public double volume() {
-        return 1.0 / 3.0 * hitungLuas() * tinggiLimas;
+        return (1.0/3.0) * super.hitungLuas() * tinggiLimas;
     }
-    
+
     @Override
     public double luasPermukaan() {
-        return 4 * hitungLuas();
+        double luasAlas = super.hitungLuas();
+        double luasSegitigaSisi = (super.hitungKeliling() * tinggiLimas) / 2.0;
+        return luasAlas + 3 * luasSegitigaSisi;
     }
 }
 

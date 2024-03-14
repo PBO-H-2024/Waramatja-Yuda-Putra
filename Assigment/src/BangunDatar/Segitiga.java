@@ -9,22 +9,29 @@ package BangunDatar;
  * @author ARDA PUTRA
  */
 public class Segitiga implements HitungBangunDatar {
-    private final double tinggiAlas;
-    private final double alas;
+    private double sisiA, sisiB, sisiC;
 
-    public Segitiga(double tinggiAlas, double alas){
-        this.tinggiAlas = tinggiAlas;
-        this.alas = alas;
+    // Constructor
+    public Segitiga(double sisiA, double sisiB, double sisiC) {
+        this.sisiA = sisiA;
+        this.sisiB = sisiB;
+        this.sisiC = sisiC;
     }
 
     @Override
     public double hitungLuas() {
-        return alas * tinggiAlas / 2.0;
+        double tinggi = cariTinggi();
+        return 0.5 * sisiA * tinggi;
     }
 
     @Override
     public double hitungKeliling() {
-        double sisimiring = Math.sqrt(Math.pow(alas / 2.0, 2) + Math.pow(tinggiAlas, 2));
-        return (2 * sisimiring) + alas;
+        return sisiA + sisiB + sisiC;
+    }
+
+    private double cariTinggi() {
+        double setengahKeliling = hitungKeliling() / 2.0;
+        double tinggi = (2 * Math.sqrt(setengahKeliling * (setengahKeliling - sisiA) *(setengahKeliling - sisiB) * (setengahKeliling - sisiC))) / sisiA;
+        return tinggi;
     }
 }
