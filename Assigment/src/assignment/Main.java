@@ -46,7 +46,7 @@ public class Main {
                     double tinggiLimas = scanner.nextDouble();
                     
                     Segitiga segitiga = new Segitiga(sisiA, sisiB, sisiC);
-                     System.out.println("\nHasil perhitungan:");
+                    System.out.println("\nHasil perhitungan:");
                     System.out.println("Luas Segitiga: " + segitiga.hitungLuas());
                     System.out.println("Keliling Segitiga: " + segitiga.hitungKeliling());
 
