@@ -110,7 +110,7 @@ public class GUI {
         });
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(350, 450); // Ukuran frame diatur manual untuk memastikan semua komponen terlihat
+        frame.setSize(350, 450);
         frame.setVisible(true);
     }
 }
